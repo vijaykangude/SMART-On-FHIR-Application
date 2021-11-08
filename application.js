@@ -14,6 +14,10 @@ app.get("/",(req, res) =>{
     res.send(obj1);                    
 });
 
+app.get("/getreq", (req, res) =>{
+    let str = fs.readFileSync("data.json")
+    res.send(str);
+})
 
 app.post("/postreq", (req, res) =>{
     let obj2 = JSON.stringify(obj);
