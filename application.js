@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 
-const fs = require("fs");         //for file handling fs module imported
+const fs = require("fs");   //file handling module imported for file read
 
 let obj = {
     "firstname": "Vijay", 
@@ -14,10 +14,6 @@ app.get("/",(req, res) =>{
     res.send(obj1);                    
 });
 
-app.get("/getreq", (req, res) =>{
-    let obj1 = fs.readFileSync("data.json");    // reading object from direcotry
-    res.send(obj1);
-});
 
 app.post("/postreq", (req, res) =>{
     let obj2 = JSON.stringify(obj);
