@@ -1,8 +1,7 @@
 # Simple Web App
 
 Description:
-    This is the simple web to serve requested pages on user request by using 
-    express framework
+     A simple web application build using Express framework. It expose different endpoints to server JSON data.
 
 EndPoints:-
     1. GET('/')
