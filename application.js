@@ -1,30 +1,15 @@
 // Simple Web App to explore get and post request by using Express framework
 const express = require("express");
+// const router = require("express").Router();
 const app = express();
+const port = 80;       // used a 80 port because we can view just typing localhost
 
-const fs = require("fs");   //file handling module imported for file read
 
-let obj = {
-    "firstname": "Vijay", 
-    "lastname" : "Kangude"
-};
+app.use('/' , require('./route'));
 
-app.get("/",(req, res) =>{
-    let obj1 = JSON.stringify(obj);   //displays json object by converting into string format
-    res.send(obj1);                    
-});
+// const fs = require("fs");   //file handling module imported for file read
 
-app.get("/getreq", (req, res) =>{
-    let str = fs.readFileSync("data.json")
-    res.send(str);
-})
 
-app.post("/postreq", (req, res) =>{
-    let obj2 = JSON.stringify(obj);
-    res.send(`Print input from user request - ${obj2}`);    //As you said in that google dfrive file
-});
-
-const port = 80;
-app.listen(port, () =>{
+app.listen(port , () =>{
     console.log(`Application started successfully at port: ${port}`);  //learned a bacticks use from tutorial;s
 });
