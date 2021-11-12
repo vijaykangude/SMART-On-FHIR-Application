@@ -16,7 +16,8 @@ route.get('/', (req , res) =>{
 });
 
 route.post('/view',(req , res) =>{      //post request for root page just for practice
-    res.send("This is Post Request in view page");
+    let a = JSON.stringify(obj);
+    res.send(`Printed input from user request is: ${a}`);
 });
 
 route.get('/About', (req , res) =>{
