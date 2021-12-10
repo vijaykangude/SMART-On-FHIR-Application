@@ -14,11 +14,11 @@ console.log(clientSecret);
 app.use('/' , require('./route'));
 
 app.post('/oauth-init', () => {
-
+    let accessToken = jwt.sign(data,clientSecret, {expiresIn: "1h"})
 })
 
 app.get('/metadata', (req, res) =>{
-    let accessToken = jwt.sign(data,clientSecret, {expiresIn: "1h"})
+    
 })
 
 app.listen(9000 , () =>{
