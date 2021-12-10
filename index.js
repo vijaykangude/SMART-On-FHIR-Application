@@ -17,6 +17,10 @@ app.post('/oauth-init', () => {
 
 })
 
+app.get('/metadata', (req, res) =>{
+    let accessToken = jwt.sign(data,clientSecret, {expiresIn: "1h"})
+})
+
 app.listen(9000 , () =>{
     console.log("Server is listening at port: 9000");
 })
