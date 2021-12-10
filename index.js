@@ -13,12 +13,13 @@ console.log(clientSecret);
 
 app.use('/' , require('./route'));
 
-app.post('/oauth-init', () => {
+
+app.post('/oauth-init', (req, res) => {
     let accessToken = jwt.sign(data,clientSecret, {expiresIn: "1h"})
 })
 
 app.get('/metadata', (req, res) =>{
-    
+    res.send("you are in meta data endpoint");
 })
 
 app.listen(9000 , () =>{
