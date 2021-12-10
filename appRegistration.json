@@ -1,0 +1,6 @@
+{
+    "clientID": "77cc0f9d-ada4-4eec-9356-2a9b4cfabf66",
+    "clientSecret": "EJtDSm2eLUH1XKfX9epLEUKoAjSn9nWLpKDPsRp5rj5GA04z7MnfabJwgl8OZJwb2Urd-9oKvq21JHLlundptA",
+    "scope": "launch patient/*.* openid profile",
+    "appName": "diabitiesPatientApp"
+}

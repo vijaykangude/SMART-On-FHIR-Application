@@ -6,12 +6,9 @@ route.get('/', (req , res) =>{
     res.send("get request");
 });
 
-route.post('/view',(req , res) =>{      //post request for root page just for practice
-    res.send("Printed input from user request is");
+route.post('/oauth-init',(req , res) =>{
+    
 });
 
-route.get('/about', (req , res) =>{
-    res.send("This is About Page");
-});
 
 module.exports = route;
