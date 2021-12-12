@@ -1,7 +1,7 @@
 const route = require("express").Router();
-// const auth = require("../auth");
+// const auth = require("../auth");      INCOMPLETE MODULE
 
-route.get('/', (req , res) =>{        // route.get('/',auth , () );    = SECURED ROUTES
+route.get('/', (req , res) =>{
     res.send("Home Page");
 });
 
