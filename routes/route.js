@@ -1,13 +1,18 @@
-const route = require("express").Router();
-// const auth = require("../auth");      INCOMPLETE MODULE
+const router = require("express").Router();
+const Service = require("../services/Service");
+const service = new Service();
 
-route.get('/', (req , res) =>{
+router.get('/', (req , res) =>{
     res.send("Home Page");
 });
 
-route.post('/oauth-init',(req , res) =>{   //route.post('/oauth-init', auth, () );   =  SECURED ROUTES
-     
+router.get('/oauth-init/:appName', async function(req, res){
+    return await service.oauthInit(req, res);
+});
+
+router.get('/oauth-callback', async function(req, res){
+    return await service.oauthCallback(req, res);
 });
 
 
-module.exports = route;
+module.exports = router;
