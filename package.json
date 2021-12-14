@@ -1,7 +1,7 @@
 {
   "name": "express",
   "version": "1.0.0",
-  "description": "first time exploring express",
+  "description": "Project for EHR",
   "main": "application.js",
   "scripts": {
     "start": "nodemon index.js",
