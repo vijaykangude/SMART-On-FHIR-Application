@@ -1,15 +1,29 @@
 {
-  "name": "express",
+  "name": "diabitiesPatientApp",
   "version": "1.0.0",
-  "description": "first time exploring express",
-  "main": "application.js",
+  "description": "Project for EHR",
+  "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vijay",
+  "author": "Vijay Kangude",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
-  }
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "jwt-decode": "^3.1.2",
+    "nodemon": "^2.0.15",
+    "qs": "^6.10.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/vijaykangude/Msc-CS-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vijaykangude/Msc-CS-Project/issues"
+  },
+  "homepage": "https://github.com/vijaykangude/Msc-CS-Project#readme"
 }
-
