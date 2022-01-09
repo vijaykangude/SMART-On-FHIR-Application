@@ -8,6 +8,8 @@ const app = express();
 app.use(express.json());
 app.use(helmet({ noCache: true }));
 app.use(cors());
+// Serve static files from frotend
+app.use(express.static('public'));
 //routes 
 app.use('/' , routes);
 

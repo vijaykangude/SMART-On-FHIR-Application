@@ -2,8 +2,8 @@ const router = require("express").Router();
 const Service = require("../services/Service");
 const service = new Service();
 
-router.get('/', (req , res) =>{
-    res.send("Home Page");
+router.get('/patientDetails', (req , res) =>{
+    return service.getPatientDetails(req , res);
 });
 
 router.get('/oauth-init/:appName', async function(req, res){
