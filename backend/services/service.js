@@ -69,13 +69,6 @@ class Service {
         res.redirect('/');
     }
 
-    getPatientDetails(req, res){
-        res.send( {
-            patientDemographicDetails: this.patientDemographicDetails,
-            practitionerDetails: this.practitionerDetails,
-            patientObservationDetails: this.patientObservationDetails
-        });
-    }
     async getMetadataOfFhirServer(issuer) {
         try {
             console.log('getMetadataOfFhirServer');
@@ -180,6 +173,14 @@ class Service {
         } catch (error) {
             console.log('Error while getting observation, error: ' + JSON.stringify(error));
         }
+    }
+
+    getPatientDetails(req, res){
+        res.send( {
+            patientDemographicDetails: this.patientDemographicDetails,
+            practitionerDetails: this.practitionerDetails,
+            patientObservationDetails: this.patientObservationDetails
+        });
     }
 
 }
