@@ -6,6 +6,12 @@ const fs = require("fs");
 const appRegistration = fs.readFileSync('appRegistration.json');
 
 class Service {
+    accessToken = '';
+
+    patientDemographicDetails = {};
+    practitionerDetails = {};
+    patientObservationDetails = {};
+
     async oauthInit(req, res) {
         try {
             console.log('oauthInit');
@@ -51,9 +57,14 @@ class Service {
         const practitionerId = practitioner.split('/')[1];
         
         const patientResponse = await this.getPatient(patientId, accessToken);
+        this.patientDemographicDetails = patientResponse;
+
         console.log('Patient Response: ' + JSON.stringify(patientResponse));
         const practitionerResponse = await this.getPractitioner(practitionerId, accessToken);
         console.log('Practitioner Response: ' + JSON.stringify(practitionerResponse));
+        this.practitionerDetails = practitionerResponse;
+        const observationResponse = await this.getObservation(patientId, accessToken);
+        this.patientObservationDetails = observationResponse;
         console.log('Redirecting to home page for now');
         res.redirect('/');
     }
@@ -143,6 +154,33 @@ class Service {
         } catch (error) {
             console.log('Error while getting practitioner, error: ' + JSON.stringify(error));
         }
+    }
+
+    async getObservation(patientId, accessToken) {
+        try {
+            console.log('getObservation');
+            const config = {
+                method: 'get',
+                url: 'https://api.logicahealth.org/HealthcareProject/data/Observation?patient=' + patientId,
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + accessToken
+                }
+            };
+            const response = await axios(config);
+            //console.log('response: ' + JSON.stringify(response.data));
+            return response.data;
+        } catch (error) {
+            console.log('Error while getting observation, error: ' + JSON.stringify(error));
+        }
+    }
+
+    getPatientDetails(req, res){
+        res.send( {
+            patientDemographicDetails: this.patientDemographicDetails,
+            practitionerDetails: this.practitionerDetails,
+            patientObservationDetails: this.patientObservationDetails
+        });
     }
 
 }
